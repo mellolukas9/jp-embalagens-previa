@@ -1,0 +1,47 @@
+# JP Embalagens · Apache/LiteSpeed (Hostinger). Vai no out/ do build.
+# Reescritas e redirecionamentos exigem mod_rewrite (o LiteSpeed da Hostinger lê estas regras).
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Sempre HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# www para o domínio sem www
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# URLs antigas ou prováveis. Casam só a URL exata, para não pegar /sobre-nos.
+# (NE mantém o # do destino sem escapar.)
+RewriteRule ^sobre/?$ /sobre-nos/ [R=301,L]
+RewriteRule ^produtos/?$ /#catalogo [R=301,L,NE]
+RewriteRule ^contato/?$ /#fale-conosco [R=301,L,NE]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# Cache: arquivos do Next têm hash no nome; imagens e vídeos mudam raramente.
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 6 months"
+ExpiresByType image/jpeg "access plus 6 months"
+ExpiresByType image/png "access plus 6 months"
+ExpiresByType video/mp4 "access plus 6 months"
+ExpiresByType font/woff2 "access plus 30 days"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+# /_next/static tem hash no nome (imutável). As fontes de /fonts não têm: cache de 30 dias, sem immutable.
+<FilesMatch "\.(ttf|woff2)$">
+Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
