@@ -1,5 +1,5 @@
-:HL["/jp-embalagens-previa/_next/static/chunks/1ez8105yc5q9i.css","style"]
+:HL["/jp-embalagens-previa/_next/static/chunks/1hjn0kzsapooq.css","style"]
 :HL["/jp-embalagens-previa/fonts/Museo-500.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/jp-embalagens-previa/fonts/Museo-700.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/jp-embalagens-previa/assets/ambiente/sacola-casa-dos-oculos-960.avif","image",{"type":"image/avif","fetchPriority":"high","imageSrcSet":"/jp-embalagens-previa/assets/ambiente/sacola-casa-dos-oculos-640.avif 640w, /jp-embalagens-previa/assets/ambiente/sacola-casa-dos-oculos-960.avif 960w","imageSizes":"(min-width: 1024px) 520px, min(520px, calc(100vw - 32px))"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4224,"slots":null}}},"staleTime":300,"buildId":"SCRGvDI6RsSmXNCMlCi6g"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4224,"slots":null}}},"staleTime":300,"buildId":"_Z3v11pmMtx5VybSvSE0-"}
